@@ -1,0 +1,22 @@
+{
+  "id": "e5cfcffe-476d-46c0-bc9e-dedbffcad6f6",
+  "name": "MyCustomerReport",
+  "publisher": "Stefano Demiliani",
+  "brief": "",
+  "description": "",
+  "version": "1.0.0.0",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "C:\\Users\\StefanoDemiliani\\OneDrive\\Immagini\\Avatar.PNG",
+  "capabilities": [],
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "12.0.0.0",
+  "application": "12.0.0.0",
+  "idRange": {
+    "from": 50100,
+    "to": 50149
+  }
+}

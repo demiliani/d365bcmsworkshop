@@ -1,0 +1,22 @@
+{
+  "id": "37937bfa-e278-49da-8834-d7bb7cc1ce4b",
+  "name": "ALUpgradeExtension",
+  "publisher": "Stefano Demiliani",
+  "brief": "",
+  "description": "",
+  "version": "1.0.0.0",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "capabilities": [],
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "13.0.0.0",
+  "application": "13.0.0.0",
+  "idRange": {
+    "from": 50100,
+    "to": 50149
+  }
+}
