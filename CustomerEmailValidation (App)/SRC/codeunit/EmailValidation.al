@@ -7,7 +7,7 @@ codeunit 50101 EmailValidation_PKT
         httpResponse: HttpResponseMessage;
         jsonText: Text;
         jsonObj: JsonObject;
-        funcUrl: Label 'https://yourfunctionurl.azurewebsites.net/api/emailvalidatorcore?email=';
+        funcUrl: Label 'https://sdemailvalidatorcore.azurewebsites.net/api/emailvalidatorcore?email=';
         InvalidEmailError: Label 'Invalid email address.';
         InvalidJonError: Label 'Invalid JSON response.';
         validationResult: Boolean;
@@ -16,7 +16,7 @@ codeunit 50101 EmailValidation_PKT
             EnableExternalCallsInSandbox();
             httpClient.Get(funcUrl + rec."E-Mail", httpResponse);
             httpResponse.Content().ReadAs(jsonText);
-            //Response JSON format: {"Email":"test@packt.com","Valid":true}
+            //Response JSON format: {"Email":"test@demiliani.com","Valid":true}
             if not jsonObj.ReadFrom(jsonText) then
                 Error(InvalidJonError);
             //Read the Valid token from the response
@@ -37,7 +37,7 @@ codeunit 50101 EmailValidation_PKT
     local procedure EnableExternalCallsInSandbox()
     var
         NAVAppSetting: Record "NAV App Setting";
-        TenantManagement: Codeunit "Tenant Management";
+        TenantManagement: Codeunit "Environment Information";
         ModInfo: ModuleInfo;
     begin
         NavApp.GetCurrentModuleInfo(ModInfo);
