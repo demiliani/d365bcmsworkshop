@@ -34,5 +34,6 @@
   ],
   "contextSensitiveHelpUrl": "https://ALProject1.com/help/",
   "showMyCode": true,
-  "runtime": "4.0"
+  "runtime": "4.0",
+  "features": ["TranslationFile"]
 }
