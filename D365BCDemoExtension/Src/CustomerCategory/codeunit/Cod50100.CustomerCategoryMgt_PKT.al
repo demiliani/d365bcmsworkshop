@@ -70,4 +70,52 @@ codeunit 50100 "Customer Category Mgt_PKT"
 
         exit(TotalAmount);
     end;
+
+
+    [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnAfterValidateEvent', 'No.', false, false)]
+    local procedure CheckQualityEnabled(var Rec: Record "Sales Line")
+    begin
+        if (Rec."Document Type" = Rec."Document Type"::Order) and (Rec.Type = Rec.Type::Item) then begin
+            VerifyQualityEnabled(Rec);
+        end;
+    end;
+
+    local procedure VerifyQualityEnabled(var SalesLine: Record "Sales Line")
+    var
+        handled: Boolean;
+    begin
+        OnBeforeVerifyQuality(SalesLine, handled);
+        VerifyQuality(SalesLine, handled);
+        OnAfterVerifyQuality(SalesLine);
+    end;
+
+    [IntegrationEvent(true, false)]
+    local procedure OnBeforeVerifyQuality(var SalesLine: Record "Sales Line"; var handled: Boolean)
+    begin
+    end;
+
+    [IntegrationEvent(true, false)]
+    local procedure OnAfterVerifyQuality(var SalesLine: Record "Sales Line")
+    begin
+    end;
+
+    local procedure VerifyQuality(var SalesLine: Record "Sales Line"; var handled: Boolean)
+    var
+        Customer: Record Customer;
+        CustomerCategory: Record "Customer Category_PKT";
+        QualityCheckErr: Label 'Customer %1 is not quality enabled.';
+        CheckNotification: Notification;
+    begin
+        if Customer.Get(SalesLine."Sell-to Customer No.") then begin
+            if CustomerCategory.Get(Customer."Customer Category Code_PKT") and
+            not CustomerCategory."Quality Control Enabled" then
+            begin
+                
+                CheckNotification.Message(StrSubstNo(QualityCheckErr,Customer."No."));
+                CheckNotification.Send();
+                Error(StrSubstNo(QualityCheckErr,Customer."No."));
+            end;
+        end;
+    end;
+
 }

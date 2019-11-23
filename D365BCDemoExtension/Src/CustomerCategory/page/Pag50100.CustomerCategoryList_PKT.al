@@ -4,7 +4,7 @@ page 50100 "Customer Category List_PKT"
     SourceTable = "Customer Category_PKT";
     UsageCategory = Lists;
     ApplicationArea = All;
-    CardPageId = CustomerCategoryCard_PKT;
+    CardPageId = "Customer Category Card_PKT";
     Caption = 'Customer Category List';
     AdditionalSearchTerms = 'ranking, categorization';
 
@@ -23,6 +23,10 @@ page 50100 "Customer Category List_PKT"
                     ApplicationArea = All;
                 }
                 field(Default; Default)
+                {
+                    ApplicationArea = All;
+                }
+                field("Quality Control Enabled"; "Quality Control Enabled")
                 {
                     ApplicationArea = All;
                 }
@@ -58,6 +62,52 @@ page 50100 "Customer Category List_PKT"
                     CustManagement: Codeunit "Customer Category Mgt_PKT";
                 begin
                     CustManagement.CreateDefaultCategory();
+                end;
+            }
+
+            action("Export Categories XML")
+            {
+                ApplicationArea = All;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                ToolTip = 'Export Customer Category';
+                Caption = 'Export Customer Category';
+                Image = Export;
+
+                trigger OnAction()
+                var
+                    TempBlob: Codeunit "Temp Blob";
+                    FileOutStream: OutStream;
+                    FileInStream: InStream;
+                    outputFile: Text;
+                begin
+                    TempBlob.CreateOutStream(FileOutStream);
+                    Xmlport.Export(Xmlport::CustomerCategoryXMLPort_PKT, FileOutStream);
+                    TempBlob.CreateInStream(FileInStream);
+                    outputFile := 'Categories.xml';
+                    DownloadFromStream(FileInStream, 'Export', '', '', outputFile);
+                end;
+            }
+            action("Import Categories XML")
+            {
+                ApplicationArea = All;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                ToolTip = 'Import Customer Category';
+                Caption = 'Import Customer Category';
+                Image = Import;
+
+                trigger OnAction()
+                var
+                    FileInStream: InStream;
+                    fileName: Text;
+                    ImportSuccessMsg: Label 'Import done sucessfully.';
+                begin
+                    UploadIntoStream('Import Category XML', '', '', fileName, FileInStream);
+                    Xmlport.Import(Xmlport::CustomerCategoryXMLPort_PKT, FileInStream);
+                    Message(ImportSuccessMsg);
                 end;
             }
         }

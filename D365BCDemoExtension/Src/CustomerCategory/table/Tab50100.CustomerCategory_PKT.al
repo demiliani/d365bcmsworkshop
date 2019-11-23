@@ -41,11 +41,16 @@ table 50100 "Customer Category_PKT"
             DataClassification = CustomerContent;
             Caption = 'Blocked';
         }
+        field(7; "Quality Control Enabled"; Boolean)
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Quality Control Enabled';
+        }
 
         field(10; TotalCustomersForCategory; Integer)
         {
             FieldClass = FlowField;
-            CalcFormula = count (Customer where ("Customer Category Code_PKT" = field (Code)));
+            CalcFormula = count (Customer where("Customer Category Code_PKT" = field(Code)));
             Caption = 'No. of associated customers';
         }
 

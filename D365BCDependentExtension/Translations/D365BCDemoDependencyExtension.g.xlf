@@ -3,10 +3,25 @@
   <file datatype="xml" source-language="en-US" target-language="en-US" original="D365BCDemoDependencyExtension">
     <body>
       <group id="body">
+        <trans-unit id="Codeunit 14566081 - Method 2901450780 - NamedType 314032239" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer %1 is not Quality Enabled</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit CustomCategoryLogic_PKN - Method CustomQualityCheck - NamedType ErrQualityEnabled</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 14566081 - Method 2901450780 - NamedType 1404930124" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer %1 is not enabled for sales orders</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit CustomCategoryLogic_PKN - Method CustomQualityCheck - NamedType ErrSalesEnabled</note>
+        </trans-unit>
         <trans-unit id="TableExtension 4143460406 - Field 2165873553 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 400365763">
           <source>Classification No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension VendorQualityExt_PKN - Field Certification No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2762209025 - Field 593647791 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2965419784">
+          <source>Can Create Sales Orders</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CustomerCategoryExt_PKN - Field Can Create Orders - Property Caption</note>
         </trans-unit>
       </group>
     </body>

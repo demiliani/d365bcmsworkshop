@@ -1,4 +1,4 @@
-page 50101 CustomerCategoryCard_PKT
+page 50101 "Customer Category Card_PKT"
 {
     PageType = Card;
     ApplicationArea = All;
@@ -30,6 +30,10 @@ page 50101 CustomerCategoryCard_PKT
                     ApplicationArea = All;
                 }
                 field(FreeGiftsAvailable; FreeGiftsAvailable)
+                {
+                    ApplicationArea = All;
+                }
+                field("Quality Control Enabled"; "Quality Control Enabled")
                 {
                     ApplicationArea = All;
                 }
