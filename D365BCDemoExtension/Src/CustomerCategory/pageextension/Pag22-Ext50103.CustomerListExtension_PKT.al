@@ -1,3 +1,5 @@
+
+
 pageextension 50103 CustomerListExtension_PKT extends "Customer List"
 {
 
@@ -32,7 +34,7 @@ pageextension 50103 CustomerListExtension_PKT extends "Customer List"
             view(CustomersWithoutCategory)
             {
                 Caption = 'Customers without Category assigned';
-                Filters = where ("Customer Category Code_PKT" = filter (''));
+                Filters = where("Customer Category Code_PKT" = filter(''));
             }
         }
     }

@@ -1,4 +1,4 @@
-codeunit 50102 "Revert Management"
+codeunit 50108 "Revert Management"
 {
     procedure RevertText(textValue: Text): Text
     var

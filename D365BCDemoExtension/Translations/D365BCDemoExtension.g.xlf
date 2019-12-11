@@ -210,7 +210,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 4240668318 - Method 1166109494 - NamedType 2067172802" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer %1 is not quality enabled.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">ITA="XXXXXXX"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Customer Category Mgt_PKT - Method VerifyQuality - NamedType QualityCheckErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 3327522369 - Method 2314997803 - NamedType 3258297942" size-unit="char" translate="yes" xml:space="preserve">

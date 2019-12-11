@@ -1,4 +1,3 @@
-
 table 50100 "Customer Category_PKT"
 {
     DrillDownPageId = "Customer Category List_PKT";
@@ -8,6 +7,7 @@ table 50100 "Customer Category_PKT"
 
     fields
     {
+        
         field(1; Code; Code[20])
         {
             DataClassification = CustomerContent;

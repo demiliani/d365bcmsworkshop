@@ -5,12 +5,12 @@ dotnet
     {
         type(System.DateTime; MyDateTime) { }
     }
-    /* assembly(System)
+    assembly(System)
     {
         type(System.Diagnostics.Process; Process) { }
         type(System.Diagnostics.ProcessStartInfo; ProcessStartInfo) { }
         type(System.Diagnostics.ProcessWindowStyle; ProcessWindowStyle) { }
-    } */
+    }
     assembly(UnusefulDLL)
     {
         type(UnusefulDLL.UnusefulClass; UnusefulClass) { }

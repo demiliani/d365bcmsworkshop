@@ -1,4 +1,4 @@
-codeunit 50101 EmailValidation_PKT
+codeunit 50107 EmailValidation_PKT
 {
     [EventSubscriber(ObjectType::table, Database::Customer, 'OnAfterValidateEvent', 'E-Mail', false, false)]
     local procedure ValidateCustomerEmail(var Rec: Record Customer)

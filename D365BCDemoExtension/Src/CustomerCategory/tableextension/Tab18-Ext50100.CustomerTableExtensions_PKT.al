@@ -1,7 +1,7 @@
 tableextension 50100 "CustomerTableExtensions_PKT" extends Customer //18 
 {
     fields
-    {
+    {        
         field(50100; "Customer Category Code_PKT"; Code[20])
         {
             TableRelation = "Customer Category_PKT".Code;

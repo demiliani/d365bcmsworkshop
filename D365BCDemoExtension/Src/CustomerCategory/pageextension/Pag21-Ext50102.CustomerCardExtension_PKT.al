@@ -3,20 +3,19 @@ pageextension 50102 "CustomerCardExtension_PKT" extends "Customer Card"
     layout
     {
         addlast(General)
-        {
+        {            
             field("Customer Category PKT"; "Customer Category Code_PKT")
             {
                 ToolTip = 'Customer Category';
                 ApplicationArea = All;
             }
-        }
+        }        
     }
 
     actions
     {
         addlast("F&unctions")
-        {
-
+        {            
             action("Assign default category")
             {
                 Image = ChangeCustomer;
@@ -35,5 +34,6 @@ pageextension 50102 "CustomerCardExtension_PKT" extends "Customer Card"
                 end;
             }
         }
+        
     }
 }

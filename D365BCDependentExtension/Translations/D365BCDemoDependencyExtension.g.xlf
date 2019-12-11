@@ -3,11 +3,6 @@
   <file datatype="xml" source-language="en-US" target-language="en-US" original="D365BCDemoDependencyExtension">
     <body>
       <group id="body">
-        <trans-unit id="Codeunit 14566081 - Method 2901450780 - NamedType 314032239" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Customer %1 is not Quality Enabled</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit CustomCategoryLogic_PKN - Method CustomQualityCheck - NamedType ErrQualityEnabled</note>
-        </trans-unit>
         <trans-unit id="Codeunit 14566081 - Method 2901450780 - NamedType 1404930124" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer %1 is not enabled for sales orders</source>
           <note from="Developer" annotates="general" priority="2"></note>

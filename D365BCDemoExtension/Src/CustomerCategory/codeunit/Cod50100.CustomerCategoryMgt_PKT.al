@@ -1,5 +1,6 @@
 codeunit 50100 "Customer Category Mgt_PKT"
 {
+
     procedure CreateDefaultCategory()
     var
         CustomerCategory: Record "Customer Category_PKT";
@@ -9,12 +10,11 @@ codeunit 50100 "Customer Category Mgt_PKT"
         CustomerCategory.Code := DefaultCode;
         CustomerCategory.Description := DefaultDescription;
         CustomerCategory.Default := true;
-        if CustomerCategory.Insert then;
+        if CustomerCategory.Insert() then;
     end;
 
 
     procedure AssignDefaultCategory(CustomerCode: Code[20])
-
     var
         Customer: Record Customer;
         CustomerCategory: Record "Customer Category_PKT";
@@ -56,6 +56,7 @@ codeunit 50100 "Customer Category Mgt_PKT"
         Customer: record Customer;
         TotalAmount: Decimal;
     begin
+        if Customer.FindFirst() then;
         Customer.SetCurrentKey("Customer Category Code_PKT");
         Customer.SetRange("Customer Category Code_PKT", CustomerCategoryCode);
         if Customer.FindSet() then
@@ -71,7 +72,6 @@ codeunit 50100 "Customer Category Mgt_PKT"
         exit(TotalAmount);
     end;
 
-
     [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnAfterValidateEvent', 'No.', false, false)]
     local procedure CheckQualityEnabled(var Rec: Record "Sales Line")
     begin
@@ -84,9 +84,11 @@ codeunit 50100 "Customer Category Mgt_PKT"
     var
         handled: Boolean;
     begin
+        //standard logic
         OnBeforeVerifyQuality(SalesLine, handled);
         VerifyQuality(SalesLine, handled);
         OnAfterVerifyQuality(SalesLine);
+
     end;
 
     [IntegrationEvent(true, false)]
@@ -103,17 +105,18 @@ codeunit 50100 "Customer Category Mgt_PKT"
     var
         Customer: Record Customer;
         CustomerCategory: Record "Customer Category_PKT";
-        QualityCheckErr: Label 'Customer %1 is not quality enabled.';
+        QualityCheckErr: Label 'Customer %1 is not quality enabled.', Comment = 'ITA="XXXXXXX"';
         CheckNotification: Notification;
     begin
+        if handled then
+            exit;
         if Customer.Get(SalesLine."Sell-to Customer No.") then begin
             if CustomerCategory.Get(Customer."Customer Category Code_PKT") and
-            not CustomerCategory."Quality Control Enabled" then
-            begin
-                
-                CheckNotification.Message(StrSubstNo(QualityCheckErr,Customer."No."));
+            not CustomerCategory."Quality Control Enabled" then begin
+
+                CheckNotification.Message(StrSubstNo(QualityCheckErr, Customer."No."));
                 CheckNotification.Send();
-                Error(StrSubstNo(QualityCheckErr,Customer."No."));
+                Error(StrSubstNo(QualityCheckErr, Customer."No."));
             end;
         end;
     end;

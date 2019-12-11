@@ -1,0 +1,18 @@
+GET https://d365bcita0918vm.westeurope.cloudapp.azure.com:7048/NAV/api/sd/custom/v1.0/companies
+Content-Type: application/x-www-form-urlencoded
+Authorization: Basic admin 8wyMj2VvS1mhnSb2xfLiN3oQ0n+jVI7whl9uN2b/GfU=
+
+#Order List
+GET http://navserver:7048/BC/api/sd/custom/v1.0/companies(02f1bfc9-bc5d-4956-bca4-4dd5674b3889)/purchaseorders
+Content-Type: application/x-www-form-urlencoded
+Authorization: Basic admin 8wyMj2VvS1mhnSb2xfLiN3oQ0n+jVI7whl9uN2b/GfU=
+
+#Order Line List
+GET http://navserver:7048/BC/api/sd/custom/v1.0/companies(02f1bfc9-bc5d-4956-bca4-4dd5674b3889)/purchaseorders(6a97c55f-a40b-ea11-bb27-000d3a231e87)/purchaseorderlines
+Content-Type: application/x-www-form-urlencoded
+Authorization: Basic admin 8wyMj2VvS1mhnSb2xfLiN3oQ0n+jVI7whl9uN2b/GfU=
+
+#Order + Line (BCexpand)
+GET http://navserver:7048/BC/api/sd/custom/v1.0/companies(02f1bfc9-bc5d-4956-bca4-4dd5674b3889)/purchaseorders(6a97c55f-a40b-ea11-bb27-000d3a231e87)?$expand=purchaseorderlines
+Content-Type: application/x-www-form-urlencoded
+Authorization: Basic admin 8wyMj2VvS1mhnSb2xfLiN3oQ0n+jVI7whl9uN2b/GfU=
