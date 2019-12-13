@@ -13,7 +13,7 @@ page 50100 "Customer Category List_PKT"
         area(content)
         {
             repeater(Group)
-            {               
+            {
                 field(Code; Code)
                 {
                     ApplicationArea = All;
@@ -27,6 +27,10 @@ page 50100 "Customer Category List_PKT"
                     ApplicationArea = All;
                 }
                 field("Quality Control Enabled"; "Quality Control Enabled")
+                {
+                    ApplicationArea = All;
+                }
+                field(Blocked; Blocked)
                 {
                     ApplicationArea = All;
                 }
